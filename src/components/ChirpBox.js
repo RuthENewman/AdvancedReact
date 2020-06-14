@@ -1,5 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default () => {
-    return <div>Chirp Box</div>;
-};
+class ChirpBox extends Component {
+    render() {
+        return (
+            <form>
+                <h3>A penny for your thoughts...</h3>
+                <textarea />
+                <div>
+                    <button>Chirp away</button>
+                </div>
+            </form>
+        )
+    }
+}
+
+export default ChirpBox;
