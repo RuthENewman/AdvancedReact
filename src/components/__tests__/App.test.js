@@ -1,26 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { shallow } from 'enzyme';
 import App from '../App';
-
-it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<App />, div);
-
-    ReactDOM.unmountComponentAtNode(div);
-});
+import ChirpBox from '../ChirpBox';
+import ChirpList from '../ChirpList';
 
 it('renders the chirp box', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<App />, div);
-    expect(div.innerHTML).toContain('Chirp Box');
-
-    ReactDOM.unmountComponentAtNode(div);
+    const wrapped = shallow(<App />);
+    expect(wrapped.find(ChirpBox).length).toEqual(1);
 });
 
 it('renders the chirp list', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<App />, div);
-    expect(div.innerHTML).toContain('Chirp List');
-
-    ReactDOM.unmountComponentAtNode(div);
+    const wrapped = shallow(<App />);
+    expect(wrapped.find(ChirpList).length).toEqual(1);
 });
