@@ -24,3 +24,13 @@ it('user can enter text into the text area', () => {
     wrapped.update();
     expect(wrapped.find("textarea").prop("value")).toEqual("chirp chirp");
 });
+
+it('user can submit the form and the text area is emptied', () => {
+    wrapped.find("textarea").simulate("change", {
+        target: { value: "new chirp" }
+    });
+    wrapped.update();
+    wrapped.find("form").simulate("submit");
+    wrapped.update();
+    expect(wrapped.find("textarea").prop("value")).toEqual("");
+});
