@@ -6,7 +6,7 @@ class ChirpBox extends Component {
     };
 
     handleChange = event => {
-        this.setState({chirp: event.target.value});
+        this.setState({ chirp: event.target.value });
     }
 
     handleSubmit = event => {
