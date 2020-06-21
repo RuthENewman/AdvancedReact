@@ -8,5 +8,5 @@ export default () => {
             <ChirpBox />
             <ChirpList />
         </div>
-    )
+    );
 };

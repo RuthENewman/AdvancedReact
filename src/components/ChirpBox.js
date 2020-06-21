@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from 'actions';
 
 class ChirpBox extends Component {
-    state = { 
-        chirp: '' 
-    };
+    state = { chirp: '' };
 
     handleChange = event => {
         this.setState({ chirp: event.target.value });
@@ -11,11 +11,7 @@ class ChirpBox extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-
-        // TODOs
-        // Call an action creator
-        // Save the chirp
-
+        this.props.saveChirp(this.state.chirp);
         this.setState({ chirp: '' });
     };
 
@@ -35,4 +31,4 @@ class ChirpBox extends Component {
     }
 }
 
-export default ChirpBox;
+export default connect(null, actions)(ChirpBox);

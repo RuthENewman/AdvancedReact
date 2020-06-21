@@ -1,11 +1,16 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import ChirpBox from 'components/ChirpBox';
+import Root from 'Root';
 
 let wrapped;
 
 beforeEach(() => {
-    wrapped = mount(<ChirpBox />);
+    wrapped = mount(
+        <Root>
+            <ChirpBox />
+        </Root>
+    );
 });
 
 afterEach(() => {   
