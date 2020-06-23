@@ -20,3 +20,8 @@ beforeEach(() => {
 it('renders one list item per chirp', () => {
     expect(wrapped.find('li').length).toEqual(2);
 });
+
+it('renders the text of each chirp', () => {
+   expect(wrapped.render().text()).toContain("First chirp");
+   expect(wrapped.render().text()).toContain("Second chirp");
+});
