@@ -1,5 +1,27 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default () => {
-    return <div>Chirp List</div>
-};
+class ChirpList extends Component {
+    renderChirps() {
+        return this.props.chirps.map(chirp => {
+            return <li key={chirp}>{chirp}</li>
+        });
+    }
+
+
+    render() {
+        return (
+            <div>
+                <ul>
+                    {this.renderChirps()}
+                </ul>
+            </div>
+        );
+    }
+}
+
+function mapStateToProps(state) {
+    return { chirps: state.chirps };
+}
+
+export default connect(mapStateToProps)(ChirpList);

@@ -9,3 +9,8 @@ it('handles SAVE_CHIRP actions', () => {
     const newState = chirpsReducer([], action);
     expect(newState).toEqual(['chirpy chirp']);
 });
+
+it('handles action of unknown type', () => {
+    const newState = chirpsReducer([], {});
+    expect(newState).toEqual([]);
+});
