@@ -1,5 +1,5 @@
-import { SAVE_CHIRP } from 'actions/types';
-import chirps from 'reducers/chirps';
+import axios from 'axios';
+import { SAVE_CHIRP, UPDATE_FEED } from 'actions/types';
 
 export function saveChirp(chirp) {
     return {
@@ -7,3 +7,12 @@ export function saveChirp(chirp) {
         payload: chirp
     };
 }
+
+export function updateFeed() {
+    const response = axios.get("https://jsonplaceholder.typicode.com/comments");
+
+    return {
+        type: UPDATE_FEED,
+        payload: response
+    };
+};
