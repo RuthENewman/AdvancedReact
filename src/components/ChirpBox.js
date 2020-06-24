@@ -17,6 +17,7 @@ class ChirpBox extends Component {
 
     render() {
         return (
+        <div>
             <form onSubmit={this.handleSubmit} >
                 <h3>A penny for your thoughts...</h3>
                 <textarea 
@@ -27,6 +28,8 @@ class ChirpBox extends Component {
                     <button>Chirp away</button>
                 </div>
             </form>
+            <button onClick={this.props.updateFeed}>Update Feed</button>
+        </div>
         )
     }
 }
