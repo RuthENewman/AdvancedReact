@@ -28,7 +28,9 @@ class ChirpBox extends Component {
                     <button>Chirp away</button>
                 </div>
             </form>
-            <button onClick={this.props.updateFeed}>Update Feed</button>
+            <button className="update-feed" onClick={this.props.updateFeed}>
+                Update Feed
+            </button>
         </div>
         )
     }

@@ -1,7 +1,20 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import moxios from 'moxios';
 import Root from 'Root';
 import App from 'components/App';
+
+beforeEach(() => {
+    moxios.install();
+    moxios.stubRequest('https://jsonplaceholder.typicode.com/comments', {
+        status: 200,
+        response: [{ name: "Chirp #1" }, { name: "Chirp #2" }]
+    });
+});
+
+afterEach(() => {
+    moxios.uninstall();
+});
 
 it('fetches and renders a list of chirps', () => {
     // Render the whole app
@@ -11,7 +24,9 @@ it('fetches and renders a list of chirps', () => {
         </Root>
     );
 
-    // Click update feed button
+    wrapped.find('.update-feed').simulate('click');
 
-    // Expect to find a list of 500 list items
+    setTimeout(() => {
+        expect(wrapped.find('li').length).toEqual(2)
+    }, 100);
 });
