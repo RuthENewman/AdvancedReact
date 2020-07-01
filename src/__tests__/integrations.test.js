@@ -26,7 +26,13 @@ it('fetches and renders a list of chirps', () => {
 
     wrapped.find('.update-feed').simulate('click');
 
-    setTimeout(() => {
-        expect(wrapped.find('li').length).toEqual(2)
-    }, 100);
+    moxios.wait(() => {
+        wrapped.update();
+
+        expect(wrapped.find('li').length).toEqual(2);
+
+        done();
+
+        wrapped.unmount();
+    });
 });
