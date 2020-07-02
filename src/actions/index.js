@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SAVE_CHIRP, UPDATE_FEED } from 'actions/types';
+import { SAVE_CHIRP, UPDATE_FEED, CHANGE_AUTH } from 'actions/types';
 
 export function saveChirp(chirp) {
     return {
@@ -16,3 +16,10 @@ export function updateFeed() {
         payload: response
     };
 };
+
+export function changeAuth(isLoggedIn) {
+    return {
+        type: CHANGE_AUTH,
+        payload: isLoggedIn
+    };
+}
