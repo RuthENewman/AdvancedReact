@@ -12,6 +12,7 @@ class ChirpList extends Component {
     render() {
         return (
             <div>
+                <h4>Chirp List</h4>
                 <ul>
                     {this.renderChirps()}
                 </ul>
