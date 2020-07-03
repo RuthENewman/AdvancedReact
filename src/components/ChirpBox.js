@@ -15,7 +15,7 @@ class ChirpBox extends Component {
 
     shouldNavigateAway() {
         if (!this.props.auth) {
-            console.log('Need to navigate away');
+           this.props.history.push('/');
         }
     }
 
