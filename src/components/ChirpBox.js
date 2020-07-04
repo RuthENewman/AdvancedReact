@@ -5,20 +5,6 @@ import * as actions from 'actions';
 class ChirpBox extends Component {
     state = { chirp: '' };
 
-    componentDidMount() {
-        this.shouldNavigateAway();
-    }
-
-    componentDidUpdate() {
-        this.shouldNavigateAway();
-    }
-
-    shouldNavigateAway() {
-        if (!this.props.auth) {
-           this.props.history.push('/');
-        }
-    }
-
     handleChange = event => {
         this.setState({ chirp: event.target.value });
     }
@@ -50,8 +36,4 @@ class ChirpBox extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    return { auth: state.auth };
-};
-
-export default connect(mapStateToProps, actions)(ChirpBox);
+export default connect(null, actions)(ChirpBox);
